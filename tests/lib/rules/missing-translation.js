@@ -1,7 +1,7 @@
 'use strict'
 
 const RuleTester = require('eslint').RuleTester
-const rule = require('../../../lib/rules/missing-translations')
+const rule = require('../../../lib/rules/missing-translation')
 
 const parserOptions = {
   ecmaVersion: 2018,
@@ -12,7 +12,7 @@ const parserOptions = {
 }
 
 const ruleTester = new RuleTester({ parserOptions })
-ruleTester.run('missing-translations', rule, {
+ruleTester.run('missing-translation', rule, {
   valid: [
     {
       code: `

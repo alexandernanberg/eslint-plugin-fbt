@@ -1,7 +1,7 @@
 'use strict'
 
 const rules = {
-  'missing-translations': require('./lib/rules/missing-translations'),
+  'missing-translation': require('./lib/rules/missing-translation'),
 }
 
 module.exports = {

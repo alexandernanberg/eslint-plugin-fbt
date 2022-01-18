@@ -1,4 +1,4 @@
-# Enforce string literals to be wrapped with a `<fbt>` container (fbt/missing-translations)
+# Enforce string literals to be wrapped with a `<fbt>` container (fbt/missing-translation)
 
 ## Rule Details
 
