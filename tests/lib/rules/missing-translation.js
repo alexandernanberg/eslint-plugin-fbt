@@ -43,10 +43,16 @@ ruleTester.run('missing-translation', rule, {
                 </fbt>
               </p>
               <p>{foo} &middot;</p>
+              <p>GitHub </p>
             </div>
           );
          }
        `,
+      options: [
+        {
+          ignoredWords: ['GitHub'],
+        },
+      ],
     },
   ],
 

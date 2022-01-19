@@ -20,6 +20,24 @@ var Hello = (
 )
 ```
 
+## Rule Options
+
+```js
+...
+"fbt/missing-translation": [<enabled>, {
+  "ignoredWords": Array<string>,
+}]
+...
+```
+
+### `ignoredWords`
+
+A list of words that are not required to be translated. Like so:
+
+```jsx
+"fbt/missing-translation": ["warn", { "ignoredWords": ["GitHub"] }]
+```
+
 ## When Not To Use It
 
 If you do not want to enforce all strings to be translated, then you can disable this rule.
