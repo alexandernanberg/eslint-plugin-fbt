@@ -21,28 +21,32 @@ ruleTester.run('no-unwrapped-strings', rule, {
 
           return (
             <div>
-              <h1><fbt desc="Greeting">Hello</fbt></h1>
-              <p>
-                <fbt desc="Content">
-                  <a href="#" target="_blank">
-                    Link
-                  </a>
-                </fbt>
-              </p>
-              <p>
-                <fbt desc="Counter">
-                  Count:
-                  <fbt:plural count={1} showCount="yes" many="items">
-                    item
-                  </fbt:plural>
-                </fbt>
-              </p>
-              <p>
-                <fbt desc="Message">
-                  Your name is <fbt:param name="name">Alex</fbt:param>
-                </fbt>
-              </p>
+              <fbt desc="Greeting">Hello</fbt>
+              <fbt desc="Content">
+                <a href="#" target="_blank">
+                  Link
+                </a>
+              </fbt>
+              <fbt desc="Counter">
+                Count:
+                <fbt:plural count={1} showCount="yes" many="items">
+                  item
+                </fbt:plural>
+              </fbt>
+              <fbt desc="Message">
+                Your name is <fbt:param name="name">Alex</fbt:param>
+              </fbt>
               <p>{foo} &middot;</p>
+            </div>
+          );
+         }
+       `,
+    },
+    {
+      code: `
+         function Component() {
+          return (
+            <div>
               <p>GitHub </p>
             </div>
           );
@@ -54,6 +58,15 @@ ruleTester.run('no-unwrapped-strings', rule, {
         },
       ],
     },
+    {
+      code: `
+         function Component() {
+          return (
+            <div aria-label={fbt('Hello', 'Greeting')}></div>
+          );
+         }
+       `,
+    },
   ],
 
   invalid: [
@@ -61,8 +74,23 @@ ruleTester.run('no-unwrapped-strings', rule, {
       code: `
         function Component() {
           return (
+            <div>Hello</div>
+          );
+        }
+       `,
+      errors: [
+        {
+          messageId: 'unwrappedString',
+        },
+      ],
+    },
+    {
+      code: `
+        function Component() {
+          return (
             <div>
-              <h1>Hello</h1>
+              <div aria-label="Hello" />
+              <div aria-label={\`Hello\`} />
             </div>
           );
         }
@@ -70,7 +98,9 @@ ruleTester.run('no-unwrapped-strings', rule, {
       errors: [
         {
           messageId: 'unwrappedString',
-          data: { text: 'Hello' },
+        },
+        {
+          messageId: 'unwrappedString',
         },
       ],
     },
