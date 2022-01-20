@@ -20,7 +20,12 @@ ruleTester.run('no-empty-strings', rule, {
           const str = 'Hello';
           return (
             <div>
-              <fbt desc="Greeting">Hello</fbt>
+              <fbt desc="Greeting">Hello world</fbt>
+              <fbt desc="Greeting">Hello world <a href="">Link</a></fbt>
+              <fbt desc="Greeting">
+                Hello world{' '}
+                <a href="">Link</a>
+              </fbt>
               <fbt desc="Greeting">{'Hello'}</fbt>
               <fbt desc="Greeting">{\`Hello\`}</fbt>
               {fbt('Hello world', 'Greeting')}
