@@ -1,7 +1,7 @@
 'use strict'
 
 const RuleTester = require('eslint').RuleTester
-const rule = require('../../../lib/rules/missing-translation')
+const rule = require('../../../lib/rules/no-unwrapped-strings')
 
 const parserOptions = {
   ecmaVersion: 2018,
@@ -12,7 +12,7 @@ const parserOptions = {
 }
 
 const ruleTester = new RuleTester({ parserOptions })
-ruleTester.run('missing-translation', rule, {
+ruleTester.run('no-unwrapped-strings', rule, {
   valid: [
     {
       code: `
@@ -69,7 +69,7 @@ ruleTester.run('missing-translation', rule, {
        `,
       errors: [
         {
-          messageId: 'missingFbtContainer',
+          messageId: 'unwrappedString',
           data: { text: 'Hello' },
         },
       ],

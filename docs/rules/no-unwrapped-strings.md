@@ -1,4 +1,4 @@
-# Enforce string literals to be wrapped with a `<fbt>` container (fbt/missing-translation)
+# Enforce strings to be wrapped with `<fbt>` (fbt/no-unwrapped-strings)
 
 ## Rule Details
 
@@ -24,7 +24,7 @@ var Hello = (
 
 ```js
 ...
-"fbt/missing-translation": [<enabled>, {
+"fbt/no-unwrapped-strings": [<enabled>, {
   "ignoredWords": Array<string>,
 }]
 ...
@@ -35,9 +35,9 @@ var Hello = (
 A list of words that are not required to be translated. Like so:
 
 ```jsx
-"fbt/missing-translation": ["warn", { "ignoredWords": ["GitHub"] }]
+"fbt/no-unwrapped-strings": ["warn", { "ignoredWords": ["GitHub"] }]
 ```
 
 ## When Not To Use It
 
-If you do not want to enforce all strings to be translated, then you can disable this rule.
+If you do not want to enforce all strings to be marked for translation, then you can disable this rule.

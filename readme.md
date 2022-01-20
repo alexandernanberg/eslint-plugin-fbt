@@ -21,16 +21,16 @@ Enable the rules that you would like to use.
 ```json
 {
   "rules": {
-    "fbt/missing-translation": "warn"
+    "fbt/no-unwrapped-strings": "warn"
   }
 }
 ```
 
 # List of supported rules
 
-| Rule                                                         | Description                                                    |
-| :----------------------------------------------------------- | :------------------------------------------------------------- |
-| [fbt/missing-translation](docs/rules/missing-translation.md) | Enforce string literals to be wrapped with a `<fbt>` container |
+| Rule                                                           | Description                                |
+| :------------------------------------------------------------- | :----------------------------------------- |
+| [fbt/no-unwrapped-strings](docs/rules/no-unwrapped-strings.md) | Enforce strings to be wrapped with `<fbt>` |
 
 ## License
 
