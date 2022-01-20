@@ -17,13 +17,15 @@ ruleTester.run('no-empty-strings', rule, {
     {
       code: `
          function Component() {
-          const str = '';
+          const str = 'Hello';
           return (
             <div>
-              <p><fbt desc="Greeting">Hello</fbt></p>
-              <p><fbt desc="Greeting">{'Hello'}</fbt></p>
-              <p>{fbt('Hello world', 'Greeting')}</p>
-              <p>{fbt(str, 'Greeting')}</p>
+              <fbt desc="Greeting">Hello</fbt>
+              <fbt desc="Greeting">{'Hello'}</fbt>
+              <fbt desc="Greeting">{\`Hello\`}</fbt>
+              {fbt('Hello world', 'Greeting')}
+              {fbt(\`Hello world\`, 'Greeting')}
+              {fbt(str, 'Greeting')}
             </div>
           );
          }
@@ -35,19 +37,21 @@ ruleTester.run('no-empty-strings', rule, {
     {
       code: `
         function Component() {
-          const str = '';
           return (
             <div>
-              <p><fbt desc="Greeting"></fbt></p>
-              <p><fbt desc="Greeting">{''}</fbt></p>
-              <p>{fbt('', 'Greeting')}</p>
-              <p>{fbt(\`\`, 'Greeting')}</p>
-              <p>{fbt(\`\${str}\`, 'Greeting')}</p>
+              <fbt desc="Greeting"></fbt>
+              <fbt desc="Greeting">{''}</fbt>
+              <fbt desc="Greeting">{\`\`}</fbt>
+              {fbt('', 'Greeting')}
+              {fbt(\`\`, 'Greeting')}
             </div>
           );
         }
        `,
       errors: [
+        {
+          messageId: 'jsxEmptyString',
+        },
         {
           messageId: 'jsxEmptyString',
         },
