@@ -24,9 +24,7 @@ var Hello = (
 
 ```js
 ...
-"fbt/no-unwrapped-strings": [<enabled>, {
-  "ignoredWords": Array<string>,
-}]
+"fbt/no-unwrapped-strings": [<enabled>, {"ignoredWords": Array<string>}]
 ...
 ```
 
