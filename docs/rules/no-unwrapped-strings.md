@@ -10,6 +10,10 @@ Examples of **incorrect** code for this rule:
 var Hello = <h1>Hello</h1>
 ```
 
+```jsx
+var Hello = <h1>{`Hello`}</h1>
+```
+
 Examples of **correct** code for this rule:
 
 ```jsx
@@ -18,6 +22,10 @@ var Hello = (
     <fbt desc="Greeting">Hello</fbt>
   </h1>
 )
+```
+
+```jsx
+var Hello = <h1>{fbt('Hello', 'Greeting')}</h1>
 ```
 
 ## Rule Options

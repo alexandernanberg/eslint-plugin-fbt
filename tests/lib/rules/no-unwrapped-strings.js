@@ -16,11 +16,11 @@ ruleTester.run('no-unwrapped-strings', rule, {
   valid: [
     {
       code: `
-         function Component() {
+         function Component(props) {
           const foo = 'foo';
 
           return (
-            <div>
+            <div {...props}>
               <fbt desc="Greeting">Hello</fbt>
               <fbt desc="Content">
                 <a href="#" target="_blank">
@@ -48,6 +48,7 @@ ruleTester.run('no-unwrapped-strings', rule, {
           return (
             <div>
               <p className="foo">GitHub</p>
+              <p>{\`GitHub\`}</p>
               <span title="GitHub" />
               <span title={\`GitHub\`} />
             </div>
@@ -64,7 +65,10 @@ ruleTester.run('no-unwrapped-strings', rule, {
       code: `
          function Component() {
           return (
-            <div aria-label={fbt('Hello', 'Greeting')}></div>
+            <div>
+              <div aria-label={fbt('Hello', 'Greeting')}></div>
+              <div aria-label={fbt(\`Hello\`, 'Greeting')}></div>
+            </div>
           );
          }
        `,
@@ -76,11 +80,17 @@ ruleTester.run('no-unwrapped-strings', rule, {
       code: `
         function Component() {
           return (
-            <div>Hello</div>
+            <div>
+              <div>Hello</div>
+              <div>{\`Hello\`}</div>
+            </div>
           );
         }
        `,
       errors: [
+        {
+          messageId: 'unwrappedString',
+        },
         {
           messageId: 'unwrappedString',
         },
