@@ -27,7 +27,13 @@ ruleTester.run('no-empty-strings', rule, {
                 <a href="">Link</a>
               </fbt>
               <fbt desc="Greeting">{'Hello'}</fbt>
+              <fbt desc="Greeting">
+                {'Hello'}
+              </fbt>
               <fbt desc="Greeting">{\`Hello\`}</fbt>
+              <fbt desc="Greeting">
+                {\`Hello\`}
+              </fbt>
               {fbt('Hello world', 'Greeting')}
               {fbt(\`Hello world\`, 'Greeting')}
               {fbt(str, 'Greeting')}
@@ -46,7 +52,13 @@ ruleTester.run('no-empty-strings', rule, {
             <div>
               <fbt desc="Greeting"></fbt>
               <fbt desc="Greeting">{''}</fbt>
+              <fbt desc="Greeting">
+                {''}
+              </fbt>
               <fbt desc="Greeting">{\`\`}</fbt>
+              <fbt desc="Greeting">
+                {\`\`}
+              </fbt>
               {fbt('', 'Greeting')}
               {fbt(\`\`, 'Greeting')}
             </div>
@@ -57,6 +69,34 @@ ruleTester.run('no-empty-strings', rule, {
         {
           messageId: 'jsxEmptyString',
         },
+        {
+          messageId: 'jsxEmptyString',
+        },
+        {
+          messageId: 'jsxEmptyString',
+        },
+        {
+          messageId: 'emptyString',
+        },
+        {
+          messageId: 'emptyString',
+        },
+      ],
+    },
+    {
+      code: `
+        function Component() {
+          return (
+            <div>
+              <fbt desc="">Hello</fbt>
+              <fbt desc={\`\`}>Hello</fbt>
+              {fbt('Hello', '')}
+              {fbt('Hello', \`\`)}
+            </div>
+          );
+        }
+       `,
+      errors: [
         {
           messageId: 'jsxEmptyString',
         },

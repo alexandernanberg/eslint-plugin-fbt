@@ -83,11 +83,17 @@ ruleTester.run('no-unwrapped-strings', rule, {
             <div>
               <div>Hello</div>
               <div>{\`Hello\`}</div>
+              <div>
+                {\`Hello world\`}
+              </div>
             </div>
           );
         }
        `,
       errors: [
+        {
+          messageId: 'unwrappedString',
+        },
         {
           messageId: 'unwrappedString',
         },

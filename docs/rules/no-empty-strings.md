@@ -7,11 +7,23 @@ This rule prevents empty strings from being given to `<fbt>` or `fbt()`.
 Examples of **incorrect** code for this rule:
 
 ```jsx
+var Hello = <fbt desc="Greeting"></fbt>
+```
+
+```jsx
 var Hello = <fbt desc="Greeting">{''}</fbt>
 ```
 
 ```jsx
+var Hello = <fbt desc="">Hello</fbt>
+```
+
+```jsx
 var Hello = fbt('', 'Greeting')
+```
+
+```jsx
+var Hello = fbt('Hello', '')
 ```
 
 Examples of **correct** code for this rule:
