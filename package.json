@@ -17,5 +17,8 @@
     "eslint-config-alexandernanberg": "^3.2.0",
     "mocha": "^9.1.4",
     "prettier": "^2.5.1"
+  },
+  "dependencies": {
+    "jsx-ast-utils": "^3.2.1"
   }
 }

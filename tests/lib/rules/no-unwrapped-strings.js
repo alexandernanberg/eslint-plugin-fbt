@@ -47,7 +47,9 @@ ruleTester.run('no-unwrapped-strings', rule, {
          function Component() {
           return (
             <div>
-              <p>GitHub </p>
+              <p className="foo">GitHub</p>
+              <span title="GitHub" />
+              <span title={\`GitHub\`} />
             </div>
           );
          }
@@ -87,15 +89,20 @@ ruleTester.run('no-unwrapped-strings', rule, {
     {
       code: `
         function Component() {
+          const name = 'Foo';
           return (
             <div>
               <div aria-label="Hello" />
               <div aria-label={\`Hello\`} />
+              <div aria-label={\`Hello \${name}\`} />
             </div>
           );
         }
        `,
       errors: [
+        {
+          messageId: 'unwrappedString',
+        },
         {
           messageId: 'unwrappedString',
         },
