@@ -7,25 +7,31 @@ By default this rule requires that you wrap all literal strings in a `<fbt>` con
 Examples of **incorrect** code for this rule:
 
 ```jsx
-var Hello = <h1>Hello</h1>
+<h1>Hello</h1>
 ```
 
 ```jsx
-var Hello = <h1>{`Hello`}</h1>
+<h1>{`Hello`}</h1>
+```
+
+```jsx
+<span title="Hello" />
 ```
 
 Examples of **correct** code for this rule:
 
 ```jsx
-var Hello = (
-  <h1>
-    <fbt desc="Greeting">Hello</fbt>
-  </h1>
-)
+<h1>
+  <fbt desc="Greeting">Hello</fbt>
+</h1>
 ```
 
 ```jsx
-var Hello = <h1>{fbt('Hello', 'Greeting')}</h1>
+<h1>{fbt('Hello', 'Greeting')}</h1>
+```
+
+```jsx
+<span title={fbt('Hello', 'Greeting')} />
 ```
 
 ## Rule Options
